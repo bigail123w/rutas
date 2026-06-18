@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Análisis de Rutas en Grafos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-overlay">
+            <h1>SISTEMA DE ANÁLISIS DE RUTAS EN GRAFOS</h1>
+            <p class="subtitle">Gestión de Redes y Optimización Logística</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <div id="error-container" class="error-box hidden"></div>
+
+        <section class="section-block grid-two-columns">
+            <div class="sub-card">
+                <h2>NUEVO NODO</h2>
+                <div class="form-group-inline">
+                    <input type="text" id="node-name" placeholder="Ej. Quito">
+                    <button id="btn-add-node" class="btn-primary">Agregar</button>
+                </div>
+            </div>
+            <div class="sub-card">
+                <h2>NODOS REGISTRADOS</h2>
+                <div class="list-wrapper">
+                    <ul id="nodes-list" class="bullet-list"></ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-block">
+            <h2>REGISTRAR CONEXIÓN</h2>
+            <div class="conexion-content">
+                <div class="conexion-img">
+                    <img src="imagenes/destino.png" alt="Ilustración Red">
+                </div>
+                
+                <div class="conexion-form">
+                    <div class="campo">
+                        <label for="source-node">• Nodo origen:</label>
+                        <select id="source-node"><option value="">Seleccione...</option></select>
+                    </div>
+                    <div class="campo">
+                        <label for="dest-node">• Nodo destino:</label>
+                        <select id="dest-node"><option value="">Seleccione...</option></select>
+                    </div>
+                    <div class="campo">
+                        <label for="distance">• Distancia (km):</label>
+                        <input type="number" id="distance" min="1" placeholder="0">
+                    </div>
+                    <button id="btn-add-edge" class="btn-action">Agregar Conexión</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid-two-columns section-block no-border-bg">
+            <div class="sub-card height-equal">
+                <h2>CONEXIONES REGISTRADAS</h2>
+                <div id="edges-visual-list" class="visual-connections-container"></div>
+            </div>
+
+            <div class="sub-card height-equal">
+                <h2>BUSCAR RUTA</h2>
+                <div class="search-fields-box">
+                    <div class="campo" style="margin-bottom:15px;">
+                        <label>Origen:</label>
+                        <select id="search-source"><option value="">Seleccione...</option></select>
+                    </div>
+                    <div class="campo">
+                        <label>Destino:</label>
+                        <select id="search-dest"><option value="">Seleccione...</option></select>
+                    </div>
+                </div>
+                <div class="center-btn-wrapper">
+                    <button id="btn-search-route" class="btn-search">BUSCAR RUTA</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="results-section" class="section-block hidden results-animation">
+            <h2 class="title-center">RESULTADOS</h2>
+            
+            <div class="grid-results-layout">
+                <div class="results-text-zone">
+                    <div id="routes-list-output"></div>
+                    <div id="best-route-box" class="best-route-premium-box"></div>
+                </div>
+
+                <div class="results-image-zone">
+                    <div class="image-responsive-container">
+                        <img src="imagenes/info.png" alt="Grafo de Rutas" class="graph-fluid-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
